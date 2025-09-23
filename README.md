@@ -12,6 +12,9 @@
 - сил и терпения, чтобы всё смочь
 - увидеть моего кота
 
-![Вот так он выглядит](https://i.pinimg.com/736x/b3/e3/3c/b3e33c1d899dd3c088a9e57306228192.jpg)
+
+Вот так он выглядит
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/f0297a98-8c32-45cb-99bf-f6c1fa990f10" />
+
 
 
