@@ -1,0 +1,857 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "collapsed_sections": [
+        "ternary_operator",
+        "nested_conditions",
+        "isinstance_any"
+      ],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/theMorana/HSE/blob/main/Homeworks/Hometask%235\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Условия в Python\n",
+        "\n",
+        "## Теория: расширенные возможности условий"
+      ],
+      "metadata": {
+        "id": "advanced_conditions"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 1. Тернарный оператор\n",
+        "\n",
+        "Компактная запись простых условий:\n",
+        "\n",
+        "```python\n",
+        "переменная = значение_если_истина if условие else значение_если_ложь\n",
+        "```\n",
+        "\n",
+        "**Пример:**\n",
+        "```python\n",
+        "age = 20\n",
+        "status = \"взрослый\" if age >= 18 else \"ребенок\"\n",
+        "print(status)  # взрослый\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "ternary_operator"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 2. Вложенные условия\n",
+        "\n",
+        "Условия внутри других условий:\n",
+        "\n",
+        "```python\n",
+        "if условие1:\n",
+        "    if условие2:\n",
+        "        # код\n",
+        "    else:\n",
+        "        # код\n",
+        "else:\n",
+        "    # код\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "nested_conditions"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 3. Функции isinstance() и any()\n",
+        "\n",
+        "**isinstance()** - проверяет тип объекта:\n",
+        "```python\n",
+        "isinstance(переменная, тип)\n",
+        "```\n",
+        "\n",
+        "*Пример:*\n",
+        "\n",
+        "```python\n",
+        "variable = '10'\n",
+        "\n",
+        "isinstance(variable, int) # False\n",
+        "isinstance(variable, str) # True\n",
+        "```\n",
+        "\n",
+        "Можно указать несколько типов, например, числа, которые могут быть как `int`, так и `float`, мы проверяем так:\n",
+        "\n",
+        "```python\n",
+        "isinstance(number, (int, float))\n",
+        "```\n",
+        "\n",
+        "**any()** - возвращает True если хотя бы один элемент итерируемого объекта истинный:\n",
+        "```python\n",
+        "any([False, True, False])  # True\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "isinstance_any"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Блок 1: задачи на условия"
+      ],
+      "metadata": {
+        "id": "xjBo_ebS9BpG"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 1\n",
+        "\n",
+        "### Напишите программу для проверки пароля пользователя\n",
+        "\n",
+        "**Образец работы программы:**\n",
+        "\n",
+        "```\n",
+        "Введите пароль: 123\n",
+        "Пароль неверный\n",
+        "Введите пароль: 321\n",
+        "Пароль верный\n",
+        "```\n",
+        "\n",
+        "**Алгоритм:**\n",
+        "\n",
+        "1. Создайте переменную, в которой хранится верный пароль\n",
+        "2. Запросите у пользователя пароль\n",
+        "3. Если пароль верный, выведите \"Пароль верный\"\n",
+        "4. Иначе, выведите \"Пароль неверный\""
+      ],
+      "metadata": {
+        "id": "f52IBxo_3QMO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "XDk2pBii3Nvo",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "27f8f0b5-c5ff-476a-a6d4-c0adda8d537a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Введите пароль: 321\n",
+            "Пароль верный\n"
+          ]
+        }
+      ],
+      "source": [
+        "password = int(input(\"Введите пароль: \"))\n",
+        "if password == 321:\n",
+        "  print(\"Пароль верный\")\n",
+        "else:\n",
+        "  print(\"Пароль неверный\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 2\n",
+        "\n",
+        "### Напишите программу для проверки возраста пользователя с использованием тернарного оператора\n",
+        "\n",
+        "**Образец работы программы:**\n",
+        "\n",
+        "```\n",
+        "Введите возраст: 12\n",
+        "Доступ запрещен\n",
+        "Введите возраст: 21\n",
+        "Доступ разрешен\n",
+        "```\n",
+        "\n",
+        "**Задача:** Напишите код с использованием тернарного оператора"
+      ],
+      "metadata": {
+        "id": "JUJsTkMH4Gbi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "age = int(input(\"Введите возраст: \"))\n",
+        "result = print(\"Доступ разрешен\") if age >= 21 else print(\"Доступ запрещен\")"
+      ],
+      "metadata": {
+        "id": "aUr56W8b3-gg",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2250f92e-51a5-4d4c-b31c-240adeedbd5c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Введите возраст: 23\n",
+            "Доступ разрешен\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 3\n",
+        "\n",
+        "### Напишите программу для приветствия пользователя с вложенными условиями\n",
+        "\n",
+        "**Образец работы программы:**\n",
+        "\n",
+        "```\n",
+        "Введите время: 12:30\n",
+        "Добрый день!\n",
+        "Введите время: 10:30\n",
+        "Доброе утро!\n",
+        "Введите время: 21:30\n",
+        "Добрый вечер!\n",
+        "Введите время: 01:30\n",
+        "Доброй ночи!\n",
+        "```\n",
+        "\n",
+        "**Задача:** Используйте вложенные условия вместо цепочки elif"
+      ],
+      "metadata": {
+        "id": "ty-_ARJv4hjz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "time_str = input(\"Введите время: \")\n",
+        "hours = int(time_str.split(':')[0])\n",
+        "\n",
+        "if 6 <= hours < 12:\n",
+        "    print(\"Доброе утро!\")\n",
+        "else:\n",
+        "    if 12 <= hours < 18:\n",
+        "        print(\"Добрый день!\")\n",
+        "    else:\n",
+        "        if 18 <= hours < 23:\n",
+        "            print(\"Добрый вечер!\")\n",
+        "        else:\n",
+        "            print(\"Доброй ночи!\")"
+      ],
+      "metadata": {
+        "id": "076IfTcK42zK",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f901341f-d154-4f63-8ae8-965cbc7035f3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Введите время: 12:46\n",
+            "Добрый день!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 4\n",
+        "\n",
+        "### Умный калькулятор с проверкой типов\n",
+        "\n",
+        "**Образец работы программы:**\n",
+        "\n",
+        "```\n",
+        "Введите выражение: 2 + 2\n",
+        "4\n",
+        "Введите выражение: 2 == 2\n",
+        "True\n",
+        "Введите выражение: 2 + 2.1\n",
+        "4.1\n",
+        "Введите выражение: abc + 2\n",
+        "Ошибка: неверный формат чисел\n",
+        "```\n",
+        "\n",
+        "**Задача:** Добавьте проверку типов с помощью isinstance"
+      ],
+      "metadata": {
+        "id": "ibVDS0oG6Kab"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  calculator = input(\"Введите выражение: \")\n",
+        "  result = eval(calculator) #eval вычисляет строковое выражение из входных данных.\n",
+        "\n",
+        "  if isinstance(result, (int, float, bool)):\n",
+        "          print(result)\n",
+        "  else:\n",
+        "          print(\"Ошибка: неверный формат чисел\")\n",
+        "\n",
+        "except (NameError, SyntaxError, TypeError):\n",
+        "    print(\"Ошибка: неверный формат чисел\")\n",
+        "except ZeroDivisionError:\n",
+        "    print(\"Ошибка: деление на ноль\")"
+      ],
+      "metadata": {
+        "id": "TQroW6Jr7C0K",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "35ea0dca-738b-416b-8554-98e7fca1257f"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Введите выражение: ала + 8\n",
+            "Ошибка: неверный формат чисел\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 5\n",
+        "\n",
+        "### Проверка сложного пароля с any()\n",
+        "\n",
+        "**Образец работы программы:**\n",
+        "\n",
+        "```\n",
+        "Введите пароль: abc\n",
+        "Пароль слишком простой\n",
+        "Введите пароль: abc123\n",
+        "Пароль принят!\n",
+        "```\n",
+        "\n",
+        "**Условия:** Пароль должен содержать хотя бы одну цифру\n",
+        "\n",
+        "**Задача:** Используйте any() для проверки наличия цифр в пароле"
+      ],
+      "metadata": {
+        "id": "Byz1IibM7s8y"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "password = input(\"Введите пароль:\")\n",
+        "result = print(\"Пароль принят!\") if any(char.isdigit() for char in password) else print(\"Пароль слишком простой\")"
+      ],
+      "metadata": {
+        "id": "z5cHM4Og7G9s",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "6954bf7d-a3bf-4233-a607-0e350d096140"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Введите пароль:djjf79\n",
+            "Пароль принят!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "qNw91GofuQXy"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Блок 2: задачи на обработку данных"
+      ],
+      "metadata": {
+        "id": "HkO1aD2F9Iss"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 6\n",
+        "\n",
+        "### Фильтрация данных с any()\n",
+        "\n",
+        "**Образец результата работы программы:**\n",
+        "\n",
+        "```\n",
+        "Laptop\n",
+        "Smartphone\n",
+        "Tablet\n",
+        "```\n",
+        "\n",
+        "**Условия:**\n",
+        "\n",
+        "Дан список продуктов в магазине техники:\n",
+        "\n",
+        "`[\"Laptop True\", \"Headphones False\", \"Smartphone True\", \"Tablet True\", \"Speaker False\"]`\n",
+        "\n",
+        "**Задача:** Используйте any() для проверки, есть ли в магазине хотя бы один продукт в наличии"
+      ],
+      "metadata": {
+        "id": "pmEBQyIh9Ist"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "id": "i5vvEmhZ9Isv",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "bb1c92d2-dba4-4e54-d13d-d583b660a782"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Laptop\n",
+            "Smartphone\n",
+            "Tablet\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Список продуктов\n",
+        "products = [\"Laptop True\", \"Headphones False\", \"Smartphone True\", \"Tablet True\", \"Speaker False\"]\n",
+        "# Проверяем, есть ли хотя бы один продукт в наличии\n",
+        "availability = any(item.split()[-1] == \"True\" for item in products)\n",
+        "\n",
+        "# Выводим продукты в наличии\n",
+        "if availability:\n",
+        "    for item in products:\n",
+        "        name, available = item.split(' ', 1)\n",
+        "        if available == \"True\":\n",
+        "            print(name)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 7\n",
+        "\n",
+        "### Фильтрация по сложному условию\n",
+        "\n",
+        "**Образец результата работы программы:**\n",
+        "\n",
+        "```\n",
+        "Товары с количеством от 10 до 40:\n",
+        "Headphones 12\n",
+        "Tablet 10\n",
+        "```\n",
+        "\n",
+        "**Условия:**\n",
+        "\n",
+        "Дан список продуктов:\n",
+        "\n",
+        "`[\"Laptop 8\", \"Headphones 12\", \"Smartphone 41\", \"Tablet 10\", \"Speaker 6\"]`\n",
+        "\n",
+        "**Задача:** Найдите товары с количеством от 10 до 40 включительно"
+      ],
+      "metadata": {
+        "id": "NdG5Y_Cg9Isv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num_products = [\"Laptop 8\", \"Headphones 12\", \"Smartphone 41\", \"Tablet 10\", \"Speaker 6\"]\n",
+        "\n",
+        "print(\"Товары с количеством от 10 до 40:\")\n",
+        "# Для каждого продукта\n",
+        "for product in num_products:\n",
+        "  name, quality = product.split(' ', 1)\n",
+        "  if 10 <= int(quality) <= 40:\n",
+        "        print(f\"{name} {quality}\")\n",
+        "\n",
+        "    # Создаем переменные name и quantity с помощью split()\n",
+        "    # Проверяем количество (от 10 до 40)\n",
+        "    # Выводим на экран название продукта и его количество"
+      ],
+      "metadata": {
+        "id": "tpsi4s4l9Isw",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "19f18317-2bc4-40d7-bd00-9c6e542aef65"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Товары с количеством от 10 до 40:\n",
+            "Headphones 12\n",
+            "Tablet 10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 8\n",
+        "\n",
+        "### Обработка данных с проверкой типов\n",
+        "\n",
+        "**Образец результата работы программы:**\n",
+        "\n",
+        "```\n",
+        "Числа: [1, 3, 4, 16]\n",
+        "Строки: ['Mouse', 'Keyboard']\n",
+        "```\n",
+        "\n",
+        "**Условия:**\n",
+        "\n",
+        "Дан список разных данных:\n",
+        "\n",
+        "`[\"Desktop\", 16, \"Mouse\", 2, \"Keyboard\", 4, 1, 3]`\n",
+        "\n",
+        "**Задача:** Разделите данные на числа и строки с помощью isinstance()"
+      ],
+      "metadata": {
+        "id": "Tf1rQpab9Isx"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mixed_data = [\"Desktop\", 16, \"Mouse\", 2, \"Keyboard\", 4, 1, 3]\n",
+        "\n",
+        "numbers = []\n",
+        "strings = []\n",
+        "\n",
+        "# Для каждого объекта в mixed_data\n",
+        "for item in mixed_data:\n",
+        " if isinstance(item, int):\n",
+        "    # Если является числом, то\n",
+        "        numbers.append(item) # вносим в список numbers\n",
+        " if isinstance(item, str):\n",
+        "    # Если является строкой, то\n",
+        "        strings.append(item) # вносим в список strings\n",
+        "\n",
+        "print(f\"Числа: {sorted(numbers)}\")  # сортирует по возрастанию\n",
+        "print(f\"Строки: {sorted(strings)}\") # сортирует по алфавиту"
+      ],
+      "metadata": {
+        "id": "LSd3_vPw9Isx",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "475ac769-3d1a-4f6d-c4a7-f4463f4df77b"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Числа: [1, 2, 3, 4, 16]\n",
+            "Строки: ['Desktop', 'Keyboard', 'Mouse']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 9\n",
+        "\n",
+        "### Сложная фильтрация с any() и all()\n",
+        "\n",
+        "**Образец результата работы программы:**\n",
+        "\n",
+        "```\n",
+        "Студенты, сдавшие все экзамены: ['Alice', 'Charlie']\n",
+        "Студенты, сдавшие хотя бы один экзамен: ['Alice', 'Bob', 'Charlie']\n",
+        "```\n",
+        "\n",
+        "**Условия:**\n",
+        "\n",
+        "Дан словарь с результатами экзаменов:\n",
+        "\n",
+        "```python\n",
+        "students = {\n",
+        "    \"Alice\": [True, True, True],\n",
+        "    \"Bob\": [False, True, False],\n",
+        "    \"Charlie\": [True, True, True],\n",
+        "    \"David\": [False, False, False]\n",
+        "}\n",
+        "```\n",
+        "\n",
+        "**Задача:** Используйте any() и all() для фильтрации"
+      ],
+      "metadata": {
+        "id": "JPbwkam09Isx"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "students = {\n",
+        "    \"Alice\": [True, True, True],\n",
+        "    \"Bob\": [False, True, False],\n",
+        "    \"Charlie\": [True, True, True],\n",
+        "    \"David\": [False, False, False]\n",
+        "}\n",
+        "\n",
+        "# Студенты, сдавшие все экзамены\n",
+        "passed_all = []\n",
+        "for name, results in students.items():\n",
+        "   if all(results):\n",
+        "    # Проверяем, что всё было сдано\n",
+        "        passed_all.append(name)\n",
+        "\n",
+        "# Студенты, сдавшие хотя бы один экзамен\n",
+        "passed_any = []\n",
+        "for name, results in students.items():\n",
+        "    if any(results):\n",
+        "    # Проверяем, что хотя бы одно было сдано\n",
+        "        passed_any.append(name)\n",
+        "\n",
+        "print(f\"Студенты, сдавшие все экзамены: {passed_all}\")\n",
+        "print(f\"Студенты, сдавшие хотя бы один экзамен: {passed_any}\")"
+      ],
+      "metadata": {
+        "id": "BPzG9mme9Isx",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5faa47f6-9a47-4a74-c9b6-7c955fd0cc5f"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Студенты, сдавшие все экзамены: ['Alice', 'Charlie']\n",
+            "Студенты, сдавшие хотя бы один экзамен: ['Alice', 'Bob', 'Charlie']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Задание 10\n",
+        "\n",
+        "### Комплексная задача: система валидации данных\n",
+        "\n",
+        "**Образец результата работы программы:**\n",
+        "\n",
+        "```\n",
+        "Валидные пользователи: ['user1', 'user3']\n",
+        "Невалидные пользователи: ['user2']\n",
+        "```\n",
+        "\n",
+        "**Условия:**\n",
+        "\n",
+        "Дан список пользователей с данными:\n",
+        "\n",
+        "```python\n",
+        "users = [\n",
+        "    {\"username\": \"user1\", \"age\": 25, \"email\": \"user1@example.com\", \"active\": True},\n",
+        "    {\"username\": \"user2\", \"age\": 15, \"email\": \"invalid_email\", \"active\": True},\n",
+        "    {\"username\": \"user3\", \"age\": 30, \"email\": \"user3@example.com\", \"active\": False}\n",
+        "]\n",
+        "```\n",
+        "\n",
+        "**Критерии валидности:**\n",
+        "- Возраст >= 18\n",
+        "- Email содержит '@'\n",
+        "- Активен (active = True)\n",
+        "\n",
+        "**Задача:** Используйте all() и any() для проверки условий"
+      ],
+      "metadata": {
+        "id": "_GVE8_lb9Isx"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "users = [\n",
+        "    {\"username\": \"user1\", \"age\": 25, \"email\": \"user1@example.com\", \"active\": True},\n",
+        "    {\"username\": \"user2\", \"age\": 15, \"email\": \"invalid_email\", \"active\": True},\n",
+        "    {\"username\": \"user3\", \"age\": 30, \"email\": \"user3@example.com\", \"active\": False}\n",
+        "]\n",
+        "\n",
+        "valid_users = []\n",
+        "invalid_users = []\n",
+        "\n",
+        "for user in users:\n",
+        "    # Прописываем условия\n",
+        "    is_valid = all([\n",
+        "        user[\"age\"] >= 18,\n",
+        "        \"@\" in user[\"email\"],\n",
+        "        user[\"active\"] is True\n",
+        "    ])\n",
+        "    # Проверяем все условия с помощью all()\n",
+        "    if is_valid:\n",
+        "    # Если всё возвращает значение true, то:\n",
+        "        valid_users.append(user[\"username\"]) # Обновляем список пользователей,\n",
+        "                                             # которые успешно прошли валидацию\n",
+        "    else:\n",
+        "        invalid_users.append(user[\"username\"]) # Обновляем список пользователей,\n",
+        "                                               # которые не прошли валидацию (наверняка они боты!)\n",
+        "\n",
+        "print(f\"Валидные пользователи: {valid_users}\")\n",
+        "print(f\"Невалидные пользователи: {invalid_users}\")"
+      ],
+      "metadata": {
+        "id": "wI_V15MM9Isy",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "56beead1-5426-4390-ee8f-d9b20e37ca39"
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Валидные пользователи: ['user1']\n",
+            "Невалидные пользователи: ['user2', 'user3']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Дополнительная задача повышенной сложности\n",
+        "\n",
+        "### Система оценки студентов\n",
+        "\n",
+        "**Задача:** Напишите программу, которая:\n",
+        "1. Принимает оценки студента по разным предметам\n",
+        "2. Определяет статус студента\n",
+        "3. Использует тернарные операторы, any/all, isinstance\n",
+        "\n",
+        "**Критерии:**\n",
+        "- Отличник: все оценки >= 4.5\n",
+        "- Хорошист: все оценки >= 3.5 и хотя бы одна >= 4.5\n",
+        "- Троечник: все оценки >= 3\n",
+        "- Неуспевающий: есть оценки < 3"
+      ],
+      "metadata": {
+        "id": "extra_challenge"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def evaluate_student(grades):\n",
+        "    \"\"\"\n",
+        "    Оценивает статус студента на основе оценок\n",
+        "    \"\"\"\n",
+        "    # Проверяем, что все элементы - числа\n",
+        "    if all(isinstance(grade, (int, float)) for grade in grades):\n",
+        "    # Определяем статус с помощью условий\n",
+        "      status = (\n",
+        "        \"Отличник\" if all(grade >= 4.5 for grade in grades) else\n",
+        "        \"Хорошист\" if all(grade >= 3.5 for grade in grades) and any(grade >= 4.5 for grade in grades) else\n",
+        "        \"Троечник\" if all(grade >= 3 for grade in grades) else\n",
+        "        \"Неуспевающий\"\n",
+        "      )\n",
+        "\n",
+        "    # NB! Используйтте название переменной status для результата\n",
+        "    return status\n",
+        "\n",
+        "# Тестируем\n",
+        "test_grades = [\n",
+        "    [5, 5, 5],      # Отличник\n",
+        "    [4, 5, 4],      # Хорошист\n",
+        "    [3, 3, 4],      # Троечник\n",
+        "    [2, 4, 3],      # Неуспевающий\n",
+        "    [4.5, 4.5, 4.5] # Отличник\n",
+        "]\n",
+        "\n",
+        "for grades in test_grades:\n",
+        "    result = evaluate_student(grades)\n",
+        "    print(f\"Оценки: {grades} -> {result}\")"
+      ],
+      "metadata": {
+        "id": "extra_challenge_code",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e4770f3c-4d6e-4133-96e6-b085ad39ca9d"
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Оценки: [5, 5, 5] -> Отличник\n",
+            "Оценки: [4, 5, 4] -> Хорошист\n",
+            "Оценки: [3, 3, 4] -> Троечник\n",
+            "Оценки: [2, 4, 3] -> Неуспевающий\n",
+            "Оценки: [4.5, 4.5, 4.5] -> Отличник\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
