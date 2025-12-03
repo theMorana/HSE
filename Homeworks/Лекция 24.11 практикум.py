@@ -1,0 +1,165 @@
+'''
+#task 1
+#password = str()
+password = input("Введите пароль: ")
+while len(password) < 8:
+        password = input("Пароль ненадёжный, попробуйте ещё раз:")
+if len(password) >= 8:
+    print("Пароль принят")
+'''   
+
+'''
+#вариант с пары
+password = str()
+while len(password) < 8: 
+  password = str(input())
+  print("Пароль слишком короткий")
+  if len(password) >= 8: 
+    print ("пароль принят")
+'''
+
+'''
+#task 2
+comands = ('start', 'stop', 'pause', 'quit')
+
+while True:
+    user_command = input("Введите команду:")
+    if user_command not in comands:
+        print("Неизвестная команда.")
+    if user_command in comands:
+        print(f"Выполняю команду {user_command}")
+    if user_command == 'quit':
+        print("Завершение работы программы")
+        break
+        
+        
+        
+#вариант с пары
+comands = ('start', 'stop', 'pause', 'quit')
+user_command = str()
+while user_command != 'quit'::
+    user_command = input("Введите команду:")
+    if user_command in comands:
+        print(f"Выполняю команду {user_command}")
+    else:
+        print("Неизвестная команда.")
+print("Завершение работы программы")
+
+'''
+'''
+#task 3
+shopping_list = []
+user_command = str()
+while user_command != "выйти":
+    user_command = input("Введите команду:")
+    if user_command == "Добавить товар":
+        stuff = input("Введите товар:")
+        shopping_list.append(stuff)
+    elif user_command == "Удалить товар":
+        stuff = input("Какой товар удалить:")
+        shopping_list.remove(stuff)
+    elif user_command == "Показать товары":
+        print("Список товаров: ", shopping_list)
+print("Завершение работы")
+
+'''
+
+
+'''
+#task 4
+email_set = set()
+while True:
+    email_adress = input("Введите email адрес: ")
+    email_set.add(email_adress)
+    if email_adress == "":
+        break
+
+sorted_emails = sorted(email_set)
+print(f"Все адреса: {sorted_emails}")
+'''
+'''
+#task 5
+data = int()
+list_number = []
+while True:
+    number = int(input("Введите целое число: "))
+    list_number += [number for number in [number] if number > 0 and number % 2 == 0]
+    if number == 0:
+        break
+print(f"Список чисел: {list_number}")
+
+'''
+
+#task 5 переделанный
+'''
+1. Создаем пустой список numbers 
+2. Начинаем while
+3. Запрашиваем список чисел вида '1 2 10 -1'
+4. split по пробелу
+5. Фильтруем (list comp.) отрицательные и нецелые
+6. Обновляем numbers 
+7. Цикл завершается, если пользователь ввел 0
+8. В конце выводим numbers
+'''
+
+
+numbers = []
+
+while True:
+    data = input("Введите числа через пробел (0 чтобы остановиться): ")
+    input_numbers = [int(x) for x in data.split() if int(x) > 0 and int(x) % 2 == 0]
+    numbers += input_numbers
+    if '0' in data.split():
+        break
+
+print(f"Результирующий список: {numbers}")
+print(f"Длина списка: {len(numbers)}")
+
+
+
+#Задачи с list comprehension
+'''
+#task 1
+celsius = [0, 15, 25, 30, 40, 100]
+fahrenheit = [(tempr * 9/5 + 32) for tempr in celsius]
+print(f"Пересчёт на Фаренгейта: {fahrenheit}")
+
+grades = [45, 85, 92, 33, 67, 78, 90, 55, 29, 88]
+passed = [grade for grade in grades if grade >= 80]
+print("Отличники: ", passed)
+'''
+
+'''
+#task 2
+transactions = [100, -50, 200, -30, 150, -20, 300] 
+income = []
+taxes = [(money * 0.15) for money in transactions if money >=0]
+print(f"Налоги: {taxes}")
+'''
+'''
+#task 3
+products = ['футболка', 'кружка', 'блокнот'] 
+colors = ['красный', 'синий', 'зеленый']
+combinations = [[f"{product} - {color}" for product in products for color in colors]]
+print(combinations)
+'''
+'''
+#task 4
+employees = [('Иван', 45), ('Мария', 92), ('Петр', 33), ('Анна', 67)]
+performance = [(name, "Отлично" if score >= 90 else "Хорошо" if score >= 60 else "Требует улучшения") for name, score in employees]
+print(performance)
+'''
+'''
+#task 5
+managers = [
+    {'name': 'Алексей', 'sales': 150, 'returns': 10}, 
+    {'name': 'Ольга', 'sales': 200, 'returns': 5}, 
+    {'name': 'Дмитрий', 'sales': 80, 'returns': 25}, 
+    {'name': 'Елена', 'sales': 300, 'returns': 8} 
+        ]
+
+top_managers = [manager['name'] for manager in managers 
+                if (manager['sales'] - manager['returns']) >= 150 
+                and (manager['returns'] / manager['sales'] * 100) < 10]
+print(f"Топовые менеджеры: {top_managers}")
+'''
