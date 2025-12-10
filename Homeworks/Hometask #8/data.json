@@ -1,0 +1,17 @@
+{
+    "company": "TechCorp",
+    "departments": {
+        "dev": [
+            "Alice",
+            "Bob",
+            "David",
+            "David",
+            "David",
+            "David"
+        ],
+        "hr": [
+            "Charlie"
+        ]
+    },
+    "budget": 146410
+}

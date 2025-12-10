@@ -1,0 +1,22 @@
+{
+  "service_name": "sentiment-analysis-api",
+  "version": "1.2.0",
+  "models": {
+    "sentiment": {
+      "path": "/models/bert-sentiment",
+      "max_input_length": 512,
+      "supported_languages": ["en", "es", "fr"]
+    },
+    "ner": {
+      "path": "/models/spacy-ner",
+      "max_input_length": 1024,
+      "supported_languages": ["en"]
+    }
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "workers": 4
+  },
+  "rate_limit": 100
+}
