@@ -261,3 +261,4 @@ server_settings = config["server"]
 
 with open("nlp_service_config_updated.json", "w", encoding="utf-8") as f:
     json.dump(config, f, ensure_ascii=False, indent=2)
+
