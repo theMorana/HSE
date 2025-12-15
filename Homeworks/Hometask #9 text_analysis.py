@@ -66,14 +66,16 @@ def create_frequency_dict(text):
     return freq_dict
 
 # Основной код
-text = load_data("Avengers_dialogue_dataset.txt")
-print(f"Длина файла: {len(text)}")
-print("Первые 10 символов:", text[:50])
+if __name__ == "__main__":
+    text = load_data("Avengers_dialogue_dataset.txt")
+    print(f"Длина файла: {len(text)}")
+    print("Первые 10 символов:", text[:50])
+    
+    tokens = tokenize_text(text)
+    print("После токенизации:", tokens[:200])
+    
+    cleaned_text = clean_text(text)
+    freq_dict = create_frequency_dict(tokens)
+    print("Самые частые слова:", freq_dict.most_common(5))
 
-tokens = tokenize_text(text)
-print("После токенизации:", tokens[:200])
-
-cleaned_text = clean_text(text)
-freq_dict = create_frequency_dict(tokens)
-print("Самые частые слова:", freq_dict.most_common(5))
 
