@@ -76,3 +76,4 @@ print("После токенизации:", tokens[:200])
 cleaned_text = clean_text(text)
 freq_dict = create_frequency_dict(tokens)
 print("Самые частые слова:", freq_dict.most_common(5))
+
