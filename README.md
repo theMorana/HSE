@@ -6,7 +6,9 @@
 
 ```
 print(“Hello world!”)
-``` 
+```
+
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=theMorana&theme=github-compact)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 Чего хочется достичь:
 - баланса в учёбе, работе и жизни
